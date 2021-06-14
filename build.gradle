@@ -1,10 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.5.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'org.asciidoctor.convert' version '1.5.8'
     id 'java'
-    id 'org.springframework.experimental.aot' version '0.10.0'
-    id 'org.graalvm.buildtools.native' version '0.9.0'
 }
 
 group = 'com.example'
@@ -43,12 +40,3 @@ test {
     useJUnitPlatform()
 }
 
-asciidoctor {
-    inputs.dir snippetsDir
-    dependsOn test
-}
-
-bootBuildImage {
-    builder = 'paketobuildpacks/builder:tiny'
-    environment = ['BP_NATIVE_IMAGE': 'true']
-}
