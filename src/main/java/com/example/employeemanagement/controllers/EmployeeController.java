@@ -5,6 +5,8 @@ import com.example.employeemanagement.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -21,7 +23,12 @@ public class EmployeeController {
         return this.employeeService.saveEmployee(employee);
     }
 
-    @GetMapping("/{id")
+    @GetMapping
+    public List<Employee> findAllEmployee(){
+        return this.employeeService.findAllEmployee();
+    }
+
+    @GetMapping("/{id}")
     public Employee findEmployee(@PathVariable("id") String id){
         return this.employeeService.findEmployee(id);
     }

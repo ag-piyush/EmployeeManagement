@@ -5,6 +5,7 @@ import com.example.employeemanagement.repository.EmployeeRepository;
 import com.example.employeemanagement.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,5 +31,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void deleteEmployee(String id) {
         this.employeeRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Employee> findAllEmployee() {
+        return this.employeeRepository.findAll();
     }
 }
